@@ -1,0 +1,29 @@
+{
+  "name": "Prj_main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "response.ts",
+  "scripts": {
+    "start": "nodemon --config nodemon.json src/response.ts"
+  },
+  "keywords": [],
+  "author": "MY",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^15.12.2",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.0.0",
+    "tslint": "^5.12.1",
+    "typescript": "4.3.5"
+  },
+  "dependencies": {
+    "@types/pg": "^8.6.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.1",
+    "knex": "^0.21.17",
+    "pg": "^8.6.0",
+    "sqlite3": "^5.0.2"
+  }
+}
