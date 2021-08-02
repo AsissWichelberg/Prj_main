@@ -12,6 +12,6 @@ POSTGRES_URL="postgres://postgres:password@localhost:5432/test_db_user"
 
 Server Port=5000
 
-POOL_MIN = 2
+POOL_MIN=2
 
-POOL_MAX 10
+POOL_MAX=10
