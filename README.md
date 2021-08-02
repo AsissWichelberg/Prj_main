@@ -9,3 +9,9 @@ https://www.getpostman.com/collections/c50c6f0d13a94b080482
 ->Environment:
 
 POSTGRES_URL="postgres://postgres:password@localhost:5432/test_db_user"
+
+Server Port=5000
+
+POOL_MIN = 2
+
+POOL_MAX 10
