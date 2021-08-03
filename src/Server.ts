@@ -7,7 +7,7 @@ if(check.error){
 
 class ServerC{
 	//Server port
-	public PORT = 	process.env.PORT || 5432;
+	public PORT = 	process.env.PORT || 3000;
 
 	public POSTGRES_URL = process.env.POSTGRES_URL || "";
   	public POOL_MIN = process.env.POSTGRES_POOL_MIN || 2;

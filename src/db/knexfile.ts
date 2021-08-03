@@ -16,8 +16,8 @@ class KnexDb {
               client: "pg",
               connection: process.env.POSTGRES_URL,
               pool:{
-                min:1,
-                max:3
+                min:2,
+                max:10
               }
             };
             this.db = Knex(this.knexConfig);

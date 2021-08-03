@@ -17,10 +17,10 @@ class UserController {
     getAll_Users(req: express.Request, res: express.Response, next: express.NextFunction){
         usrService.get_Everyusr().then(result=>{
             console.log("GEU/Succesfull!");
-            res.status(200).send(result);
             result.forEach(element => {
-               console.log("name: " + element.name + " /// email: " + element.email + " /// id: " + element.id);
-            });      
+                console.log("name: " + element.name + " /// email: " + element.email + " /// id: " + element.id);
+            });
+            res.status(200).send(result);      
         }).catch((err)=>{
             console.log("Error in Get Every User: " + err);
             next(err);
@@ -32,7 +32,6 @@ class UserController {
 
         UserSchema.getOne.validateAsync(email).then((result:string)=>{
             usrService.get_OneUsr(result).then(result=>{
-                console.log("GSU/Succesfull!");
                 res.status(200).send(result);
             }).catch((err)=>{
                 next(err);
@@ -48,8 +47,8 @@ class UserController {
 
         UserSchema.create.validateAsync(user).then((result:CreatinUser)=>{
             usrService.creation(result).then((result)=>{
-                console.log("CU/Succesfull!");
-                res.status(200).send(result.toString());
+                console.log("Creating User: " + user.toString());
+                res.status(201).send(result.toString());
             })
             .catch((err)=>{
                 next(err);
@@ -65,7 +64,7 @@ class UserController {
 
         UserSchema.update.validateAsync(Nwuser).then((result:XUser)=>{
             usrService.update(result).then((result)=>{
-                console.log("UU/Succesfull!");
+                console.log("Updating User: " + Nwuser.toString());
                 res.status(200).send(result.toString());
             }).catch((err)=>{
                 next(err);
@@ -79,9 +78,13 @@ class UserController {
     Delete_User(req: express.Request, res: express.Response, next: express.NextFunction){
         const Usrid = req.body;
 
+        if(isNaN(Usrid)){
+            return res.status(400).send("Invalid Parameter");
+        }
+
         UserSchema.delete.validateAsync(Usrid).then((result:number)=>{
             usrService.deletion(Number(Usrid)).then((result)=>{
-                console.log("UD/Succesfull!");
+                console.log("Deleting user: " + Usrid.toString());
                 res.status(200).send("User " + Usrid.toString() + " has been deleted");
             }).catch((err)=>{
                 next(err);

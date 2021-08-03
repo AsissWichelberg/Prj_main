@@ -93,7 +93,6 @@ class userRepository{
     async get_oneUser(emialUsr:string):Promise<XUser>{
         return new Promise<XUser>(async (resolve, reject)=>{
             await this.knx.db("response_db")
-            .select("*")
             .where("email", emialUsr)
             .first()
             .then((user:XUser)=>{

@@ -2,6 +2,7 @@ import server from "./Server";
 import express from "express";
 import Knexdata from './db/knexfile'; //Database
 import usrController from "./controllers/user_cntrl"; // Controller
+import Middleware from "./exceptions/middleware"; //Middleware
 
 class Strtind{
 	Prog: express.Application;
@@ -33,6 +34,7 @@ class Strtind{
 		this.Prog.use(express.urlencoded({ extended: true}));
 
 		this.Routers();
+		this.Prog.use(Middleware);
 
 	}
 

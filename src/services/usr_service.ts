@@ -44,6 +44,7 @@ class UserService{
     }
 
     public async get_Everyusr(): Promise<XUser[]>{
+        
         return new Promise<XUser[]>( async (resolve, reject)=>{
             await usrRepository.get_evryUser()
             .then((Usr:XUser[])=>{
