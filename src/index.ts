@@ -1,8 +1,8 @@
-import server from "./Server";
+import server from "./config";
 import express from "express";
 import Knexdata from './db/knexfile'; //Database
 import usrController from "./controllers/user_cntrl"; // Controller
-import Middleware from "./exceptions/middleware"; //Middleware
+import Middleware from "./exceptions/error_middleware"; //Middleware
 
 class Strtind{
 	Prog: express.Application;
