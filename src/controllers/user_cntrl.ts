@@ -27,7 +27,7 @@ class UserController {
         })
     }
 
-    GetSingle_User(req: express.Request, res: express.Response, next: express.NextFunction){
+    getSingle_User(req: express.Request, res: express.Response, next: express.NextFunction){
         const email = req.body;
 
         UserSchema.getOne.validateAsync(email).then((result:string)=>{
@@ -42,7 +42,7 @@ class UserController {
         })
     }
 
-    Create_User(req: express.Request, res: express.Response, next: express.NextFunction){
+    create_User(req: express.Request, res: express.Response, next: express.NextFunction){
         const { user } = req.body;
 
         UserSchema.create.validateAsync(user).then((result:CreatinUser)=>{
@@ -59,7 +59,7 @@ class UserController {
         })
     }
 
-    Update_User(req: express.Request, res: express.Response, next: express.NextFunction){
+    update_User(req: express.Request, res: express.Response, next: express.NextFunction){
         const { Nwuser } = req.body;
 
         UserSchema.update.validateAsync(Nwuser).then((result:XUser)=>{
@@ -75,7 +75,7 @@ class UserController {
         })
     }
 
-    Delete_User(req: express.Request, res: express.Response, next: express.NextFunction){
+    delete_User(req: express.Request, res: express.Response, next: express.NextFunction){
         const Usrid = req.body;
 
         if(isNaN(Usrid)){
@@ -97,10 +97,10 @@ class UserController {
 
     private Routersbased() {
     this.router.get('/all', this.getAll_Users.bind(this));
-    this.router.post('/add', this.Create_User.bind(this));
-    this.router.put('/update', this.Update_User.bind(this));
-    this.router.delete('/delete/:id', this.Delete_User.bind(this));
-    this.router.get('/one', this.GetSingle_User.bind(this));
+    this.router.post('/add', this.create_User.bind(this));
+    this.router.put('/update', this.update_User.bind(this));
+    this.router.delete('/delete/:id', this.delete_User.bind(this));
+    this.router.get('/one', this.getSingle_User.bind(this));
     }
 }
 
